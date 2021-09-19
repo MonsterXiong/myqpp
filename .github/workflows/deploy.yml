@@ -31,9 +31,9 @@ jobs:
           WELCOME: "SSH SCP SSH PIPELINES"
           LASTSSH: "Doing something after copying"
         with:
-          host: 120.53.225.190
-          user: root
-          pass: Lxc19970704?
+          host: ${{secrets.SERVER_IP}}
+          user: ${{secrets.SERVER_USERNAME}}
+          pass: ${{secrets.SERVER_PASSWORD}}
           connect_timeout: 10s
           first_ssh: |
             cd /project
