@@ -36,7 +36,6 @@ jobs:
           pass: Lxc19970704?
           connect_timeout: 10s
           first_ssh: |
-            pm2 delete myqpp
             cd /project
             rm -rf myqpp
           scp: |
