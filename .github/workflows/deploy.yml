@@ -25,12 +25,24 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: ssh scp ssh pipelines
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        env:
+          WELCOME: "SSH SCP SSH PIPELINES"
+          LASTSSH: "Doing something after copying"
+        with:
+          host: 120.53.225.190
+          user: root
+          pass: Lxc19970704?
+          connect_timeout: 10s
+          first_ssh: |
+            pm2 delete myapp
+            cd /project/myapp
+            rm -rf 
+          scp: |
+            * => /project/myapp
+          last_ssh: |
+            cd /project/myapp
+            npm i
+            pm2 start app.js --name myapp
+        - name: finish
