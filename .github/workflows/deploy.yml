@@ -45,4 +45,3 @@ jobs:
             cd /project/myapp
             npm i
             pm2 start app.js --name myapp
-        - name: finish
