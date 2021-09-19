@@ -36,12 +36,12 @@ jobs:
           pass: Lxc19970704?
           connect_timeout: 10s
           first_ssh: |
-            pm2 delete myapp
-            cd /project/myapp
+            pm2 delete myqpp
+            cd /project/myqpp
             rm -rf 
           scp: |
-            * => /project/myapp
+            ./ => /project/myqpp
           last_ssh: |
-            cd /project/myapp
+            cd /project/myqpp
             npm i
-            pm2 start app.js --name myapp
+            pm2 start app.js --name myqpp
