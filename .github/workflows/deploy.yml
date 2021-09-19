@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -44,4 +44,4 @@ jobs:
           last_ssh: |
             cd /project/myqpp
             npm i
-            pm2 start ./bin/www --name myqpp
+            npm run prd
