@@ -36,6 +36,7 @@ jobs:
           pass: ${{secrets.SERVER_PASSWORD}}
           connect_timeout: 10s
           first_ssh: |
+            pm2 delete myqpp
             cd /project
             rm -rf myqpp
           scp: |
@@ -43,4 +44,4 @@ jobs:
           last_ssh: |
             cd /project/myqpp
             npm i
-            pm2 start app.js --name myqpp
+            pm2 start ./bin/www --name myqpp
